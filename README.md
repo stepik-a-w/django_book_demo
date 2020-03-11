@@ -5,6 +5,10 @@
 ```shell script
 python3.8 -m venv venv
 ```
+- активировать виртуальное окружение
+```shell script
+source venv/bin/activate
+```
 - установить зависимости
 ```shell script
 pip install -r requirements.txt
