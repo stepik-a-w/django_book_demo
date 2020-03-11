@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+
+    <h2> автор: {{ object }} </h2>
+    <h2> город: {{ object.city }} </h2>
+
+    <h3> Книги автора: </h3>
+    {% for book in object.author_books.all %}
+        <div> {{ book }}</div>
+    {% endfor %}
+
+</body>
+</html>
