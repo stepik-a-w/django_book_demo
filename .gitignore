@@ -107,7 +107,6 @@ venv.bak/
 .mypy_cache/
 
 .idea/
-*.sqlite3
 .DS_Store
 
 # static files
