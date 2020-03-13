@@ -1,4 +1,5 @@
-from django.views.generic import DetailView
+from django.http import HttpResponseNotFound
+from django.shortcuts import render
 from django.views.generic import ListView
 
 from library.models import Author
@@ -9,6 +10,12 @@ class MainAuthorListView(ListView):
     model = Author
 
 
-class AuthorDetailView(DetailView):
-    template_name = 'author/detail.html'
-    model = Author
+def author_detail_view(request, id):
+    context = {}
+
+    author = Author.objects.filter(id=id).first()
+    if not author:
+        return HttpResponseNotFound(f"Нет автора с id {id}")
+
+    context["author"] = author
+    return render(request, "author/detail.html", context)
