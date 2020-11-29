@@ -1,13 +1,15 @@
 from django.http import HttpResponseNotFound
 from django.shortcuts import render
-from django.views.generic import ListView
 
 from library.models import Author
 
 
-class MainAuthorListView(ListView):
-    template_name = 'main.html'
-    model = Author
+def main_view(request):
+    authors = Author.objects.all()
+    context = {
+        "authors": authors
+    }
+    return render(request, "main.html", context)
 
 
 def author_detail_view(request, id):

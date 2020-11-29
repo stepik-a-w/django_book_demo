@@ -7,8 +7,8 @@
 
 <h2> Моя библиотека </h2>
 
-{% for object in object_list %}
-    <div> <a href="{{ object.get_absolute_url }}"> {{ object }} </a></div>
+{% for author in authors %}
+    <div> <a href="{{ author.get_absolute_url }}"> {{ author }} </a></div>
 {% endfor %}
 
 </body>
