@@ -9,15 +9,15 @@ def main_view(request):
     context = {
         "authors": authors
     }
-    return render(request, "main.html", context)
+    return render(request, "main.html", context=context)
 
 
 def author_detail_view(request, id):
-    context = {}
-
     author = Author.objects.filter(id=id).first()
     if not author:
         return HttpResponseNotFound(f"Нет автора с id {id}")
 
-    context["author"] = author
-    return render(request, "author/detail.html", context)
+    context = {
+        "author": author
+    }
+    return render(request, "author/detail.html", context=context)
